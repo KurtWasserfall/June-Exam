@@ -16,19 +16,20 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author 210218673
+ * @author 211150142
+ * Kurt Wasserfall 3B
  */
 @Service
 public class AddressAndCellServiceImpl implements  AdressAndCellService
 {
     @Autowired
-    private CustomerRepository customerRepository;
+    private CustomerRepository addressRepository;
     Customer customer;
 
     @Override
     public String findAddress(Long id) 
     {
-       customerRepository.findOne(id);
+       addressRepository.findOne(id);
        if(customer.getCustomerAddress()!=null)
        {
            customer.getCustomerAddress();
@@ -44,11 +45,11 @@ public class AddressAndCellServiceImpl implements  AdressAndCellService
 
     @Override
     public String findCellNumber(Long id) {
-        customerRepository.findOne(id);
+        addressRepository.findOne(id);
         
         if(customer.getCustomerAddress()!=null)
         {
-        String number =""+ customer.getCustomerNumber();
+        String cell =""+ customer.getContact().getCellNumber();
         }
         
         else return "Could not fund customer number";
@@ -60,12 +61,12 @@ public class AddressAndCellServiceImpl implements  AdressAndCellService
     @Override
     public Customer find(Long id) 
     {
-        return customerRepository.findOne(id);
+        return addressRepository.findOne(id);
     }
 
     @Override
     public Customer persist(Customer entity) {
-        return customerRepository.save(entity);
+        return addressRepository.save(entity);
     }
 
     @Override
@@ -73,7 +74,7 @@ public class AddressAndCellServiceImpl implements  AdressAndCellService
     {
         if(entity.getId()!=null)
         {
-            return customerRepository.save(entity);
+            return addressRepository.save(entity);
             
         }
         return null;
@@ -83,12 +84,12 @@ public class AddressAndCellServiceImpl implements  AdressAndCellService
     @Override
     public void remove(Customer entity) 
     {
-        customerRepository.delete(entity);
+        addressRepository.delete(entity);
     }
 
     @Override
     public List <Customer> findAll() {
-        return customerRepository.findAll();
+        return addressRepository.findAll();
         
     }
     

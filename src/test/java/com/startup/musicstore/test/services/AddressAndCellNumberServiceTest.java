@@ -6,8 +6,10 @@
 
 package com.startup.musicstore.test.services;
 
+import com.startup.musicstore.domain.Contact;
 import com.startup.musicstore.domain.Customer;
 import com.startup.musicstore.domain.CustomerAddress;
+import com.startup.musicstore.domain.Name;
 import com.startup.musicstore.services.AdressAndCellService;
 import com.startup.musicstore.test.ConnectionConfigTest;
 import org.springframework.context.ApplicationContext;
@@ -35,22 +37,53 @@ public class AddressAndCellNumberServiceTest {
     }
 
    
-    /*@Test (enabled=true)
+    @Test (enabled=true)
     public void AddressTest()
     {
         addressAndCellService=ctx.getBean(AdressAndCellService.class);
         
-        Customer customer = new Customer.Builder("1").customerNumber("2123").build();
-        CustomerAddress customerAddress = new CustomerAddress.Builder().id(1L).postalAddress("23 Dursley way").streetAddress("None").build();
+          Name name = new Name.Builder().firstName("Loyl").lastName("Samson").build();
+          Contact contact = new Contact.Builder().cellNumber("0721111111").phoneNumber("021-7014239").build();
+          CustomerAddress customerAddress = new CustomerAddress.Builder().streetAddress("kensins").postalAddress("50 broad Way").build();
+          
+          Customer customer = new Customer.Builder("2111").customerNumber("2111").Name(name).Contact(contact).CustomerAddress(customerAddress).build();
+       
         
-        id = customer.getId();
-        addressAndCellService.persist(customer);
+       
         
-        String result = addressAndCellService.findAddress(id);
-        Assert.assertEquals(result, "23 Dursley Way");
+       //  addressAndCellService.save(customer);
+        
+       // id=customer.getId();
+        
+      //  assertNotNull(customer);
+      Assert.assertEquals(customerAddress.getPostalAddress(), "50 broad Way");
         
         
-    }*/
+    }
+    
+     @Test (enabled=true)
+     public void CellNumberTest()
+    {
+        addressAndCellService=ctx.getBean(AdressAndCellService.class);
+        
+          Name name = new Name.Builder().firstName("Loyl").lastName("Samson").build();
+          Contact contact = new Contact.Builder().cellNumber("0721111111").phoneNumber("021-7014239").build();
+          CustomerAddress customerAddress = new CustomerAddress.Builder().streetAddress("kensins").postalAddress("50 broad Way").build();
+          
+          Customer customer = new Customer.Builder("2111").customerNumber("2111").Name(name).Contact(contact).CustomerAddress(customerAddress).build();
+       
+        
+       
+        
+       //  addressAndCellService.save(customer);
+        
+       // id=customer.getId();
+        
+      //  assertNotNull(customer);
+      Assert.assertEquals(contact.getCellNumber(), "0721111111");
+        
+        
+    }
 
     @BeforeClass
     public static void setUpClass() throws Exception 

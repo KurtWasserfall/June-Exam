@@ -18,5 +18,8 @@ public interface AdressAndCellService extends Services <Customer, Long>
     public String findAddress(Long id);
     
     public String findCellNumber(Long id);
-            
+
+   
+
+   
 }
