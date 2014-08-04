@@ -23,7 +23,7 @@ import org.testng.annotations.Test;
 
 /**
  *
-  * @author 211150142
+ * @author 211150142
  * Kurt Wasserfall 3B
  */
 public class AlbumRepositoryTest {
@@ -35,13 +35,13 @@ public class AlbumRepositoryTest {
     }
 
     
-    @Test
+    @Test(enabled = true)
     public void createAlbum() {
         
         albumRepository=ctx.getBean(AlbumRepository.class);
         
         Album album = new Album.Builder()
-                .albumTitle("Favourite Worst Nightmare")
+                .albumTitle("erakah Badu")
                 .inventory(3)
                 .unitPrice( new BigDecimal(200.00))
                 .sales(2)
@@ -61,12 +61,12 @@ public class AlbumRepositoryTest {
      
      Album updatedAlbum= new Album.Builder()
              .Album(album)
-             .albumTitle("Brainstorm")
+             .albumTitle("soul candi 5")
              .build();
      
      albumRepository.save(updatedAlbum);
      Album newAlbum = albumRepository.findOne(id);
-     Assert.assertEquals(newAlbum.getAlbumTitle(), "Brainstorm");
+     Assert.assertEquals(newAlbum.getAlbumTitle(), "soul candi 5");
     }
     
     @Test (dependsOnMethods="UpdateAlbum",enabled=true)
@@ -76,7 +76,7 @@ public class AlbumRepositoryTest {
      
         Album album = albumRepository.findOne(id);
         
-        Assert.assertEquals(album.getAlbumTitle(),"Brainstorm");
+        Assert.assertEquals(album.getAlbumTitle(),"soul candi 5");
                   
     }
     

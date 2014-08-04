@@ -52,7 +52,7 @@ public class AddressAndCellServiceImpl implements  AdressAndCellService
         String cell =""+ customer.getContact().getCellNumber();
         }
         
-        else return "Could not fund customer number";
+        else return "Could not find customer number";
         
         return ""+customer.getCustomerNumber();
         

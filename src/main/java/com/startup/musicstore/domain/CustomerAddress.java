@@ -16,7 +16,8 @@ import javax.persistence.Id;
 
 /**
  *
- * @author 210218673
+ * @author 211150142
+ * Kurt Wasserfall 3B
  */
 
 @Embeddable

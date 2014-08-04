@@ -6,20 +6,12 @@
 
 package com.startup.musicstore.services;
 
-import com.startup.musicstore.domain.Customer;
+import com.startup.musicstore.domain.Review;
 
 /**
- *
  * @author 211150142
  * Kurt Wasserfall 3B
  */
-public interface AdressAndCellService extends Services <Customer, Long>
-{
-    public String findAddress(Long id);
+public interface ReviewService extends Services <Review, Long> {
     
-    public String findCellNumber(Long id);
-
-   
-
-   
 }

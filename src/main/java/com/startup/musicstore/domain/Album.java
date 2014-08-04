@@ -39,13 +39,13 @@ public class Album implements Serializable {
     @OneToOne
     @Embedded
     @JoinColumn(name="id")
-    public static OrderItem orderItem;
+    private static OrderItem orderItem;
     @OneToMany (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="id")
-    public static Track track;
+    private static Track track;
     @OneToOne
     @JoinColumn(name="id")
-    public static MarketingInformation marketingInformation;
+    private static MarketingInformation marketingInformation;
     
     
     private Album()
@@ -66,6 +66,9 @@ public class Album implements Serializable {
         private BigDecimal unitPrice;
         private int inventory;
         private int sales;
+        private static MarketingInformation marketingInformation;
+        private static Track track;
+        private static OrderItem orderItem;
         
         public Builder id(Long value)
         {

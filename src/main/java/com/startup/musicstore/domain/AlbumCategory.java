@@ -22,7 +22,7 @@ import javax.persistence.OneToMany;
  * @author 211150142
  * Kurt Wasserfall 3B
  */
-@Embeddable
+
 @Entity
 public class AlbumCategory implements Serializable {
     private static final long serialVersionUID = 1L;
